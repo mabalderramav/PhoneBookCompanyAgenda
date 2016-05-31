@@ -15,6 +15,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
         <div>
             <nav class="MenuLeft">
                 <section class="MenuLeft-header">
@@ -23,29 +24,35 @@
                     </h2>
                 </section>
                 <asp:TreeView ID="tvMenuLeft" runat="server" CssClass="MenuLeft-treeView" ImageSet="Arrows" EnableTheming="True">
-                    <NodeStyle CssClass="MenuLeft-treeViewNode" />
-                    <SelectedNodeStyle CssClass="MenuLeft-treeViewNodeSeleccion" />
+                    <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                    <NodeStyle  Font-Names="Tahoma" Font-Size="12pt" ForeColor="Black" 
+                        HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"
+                        Font-Overline="false"  />
+                    <HoverNodeStyle ForeColor="#cc9900" Font-Size="20px" Font-Underline="false" Font-Overline="false" />
+                    <ParentNodeStyle Font-Bold="False" Font-Size="16px" />
+                    <SelectedNodeStyle Font-Underline="false"  ForeColor="#000000" HorizontalPadding="0px" VerticalPadding="0px" />
                 </asp:TreeView>
             </nav>
 
             <section class="Contenido">
                 <header class="Header">
                     <figure class="Header-imagenContenedorLogo">
+
                         <a href="#" target="_blank" class="Header-imagenLogoLink">
-                            <img src="img/logo.png" alt="Panadería Victoria" class="Header-imagenLogo" />
+                            <img src="img/logovictoria2016.png" alt="Panadería Victoria" class="Header-imagenLogo" />
                         </a>
                         <figcaption class="Header-imagenLogoDescripción">
                             <a href="#" target="_blank" class="Header-imagenLogoLink"><strong class="Header-imagenLogoLinkEnfasís">Agenda</strong> Telefónica
                             </a>
                         </figcaption>
                     </figure>
-                    <div class="Header-redesSociales">
+                    <%--<div class="Header-redesSociales">
                         <span class="icon-facebook"></span>
                         <span class="icon-twitter"></span>
                         <span class="icon-googleplus"></span>
                         <span class="icon-mail"></span>
                         <span class="icon-web"></span>
-                    </div>
+                    </div>--%>
                     <figure class="Header-imagenContenedorAvatar">
                         <figcaption class="Header-imagenAvatarDescripción">
                             <asp:Label CssClass="Header-imagenAvatarLbl" ID="lblUsuario" runat="server" Text="administrador" />

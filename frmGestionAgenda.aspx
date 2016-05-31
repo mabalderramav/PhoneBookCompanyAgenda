@@ -9,7 +9,7 @@
         <div class="GestionAgenda-header">
             <p class="GestionAgenda-p u-p">
                 <asp:TextBox ID="txbBuscar" placeholder="Buscar por nombre" CssClass="u-txb" runat="server"></asp:TextBox>
-                <asp:Button runat="server" ID="btnBuscar" CssClass="u-btn" Text="Buscar" />
+                <asp:Button runat="server" ID="btnBuscar" CssClass="u-btn" Text="Buscar" OnClick="btnBuscar_Click" />
                 <asp:Button runat="server" ID="btnNuevo" CssClass="u-btn" Text="Nuevo" OnClick="btnNuevo_Click" />
             </p>
         </div>
@@ -62,13 +62,15 @@
                 <asp:Button runat="server" ID="btnCancelar" CssClass="u-btn" Text="Cancelar" OnClick="btnCancelar_Click" TabIndex="12" />
             </p>
         </asp:Panel>
-        <asp:Panel ID="pnlGvAgenda" runat="server" Width="100%">
-            <span class="GestionAgenda-lbl u-lbl">Foto</span><asp:GridView ID="gvAgenda" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" AllowPaging="True" Font-Size="8pt" PageSize="5" OnPageIndexChanging="gvAgenda_PageIndexChanging" OnRowCancelingEdit="gvAgenda_RowCancelingEdit" OnRowDeleting="gvAgenda_RowDeleting" OnRowEditing="gvAgenda_RowEditing" OnRowUpdating="gvAgenda_RowUpdating">
+
+        <asp:Panel ID="pnlGvAgenda" CssClass="PnlGvAgenda" runat="server" Width="100%" ScrollBars="Auto">
+            <%--<span class="GestionAgenda-lbl u-lbl">Foto</span>--%>
+            <asp:GridView ID="gvAgenda" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" AllowPaging="True" Font-Size="8pt" PageSize="5" OnPageIndexChanging="gvAgenda_PageIndexChanging" OnRowCancelingEdit="gvAgenda_RowCancelingEdit" OnRowDeleting="gvAgenda_RowDeleting" OnRowEditing="gvAgenda_RowEditing" OnRowUpdating="gvAgenda_RowUpdating" OnRowDataBound="gvAgenda_RowDataBound" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="Imagen">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Eval("ImagenRuta") %>'></asp:TextBox>
+                            <asp:FileUpload ID="fuImagenRutaEdit" runat="server" />
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ImagenRuta") %>' Width="50px" />
@@ -76,12 +78,12 @@
                     </asp:TemplateField>
                     <asp:TemplateField ShowHeader="False">
                         <EditItemTemplate>
-                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CssClass="u-lbtn" CausesValidation="True" CommandName="Update" Text="Actualizar"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="LinkButton2" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Font-Size="10pt" Text="Editar"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Font-Size="10pt" Text="Eliminar"></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Font-Size="10pt" Text="Editar"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="LinkButton2" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Delete" Font-Size="10pt" Text="Eliminar"></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Codigo">
@@ -160,7 +162,9 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Area">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox13" runat="server" Text='<%# Bind("Cargo.Area.IdArea") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlAreaEdit" runat="server" DataSourceID="SqlDataSource1" DataTextField="Descripcion" DataValueField="IdArea" SelectedValue='<%# Bind("Cargo.Area.IdArea") %>' AutoPostBack="True" OnSelectedIndexChanged="ddlAreaEdit_SelectedIndexChanged">
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbPhonebookCompanyConnectionString %>" SelectCommand="SELECT [IdArea], [Descripcion] FROM [Area]"></asp:SqlDataSource>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label13" runat="server" Text='<%# Bind("Cargo.Area.Descripcion") %>'></asp:Label>
@@ -169,7 +173,11 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Cargo">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox12" runat="server" Text='<%# Bind("IdCargo") %>'></asp:TextBox>
+                            <asp:HiddenField ID="hfIdCargoEdit" runat="server" Value='<%# Bind("IdCargo") %>' />
+                            <asp:DropDownList ID="ddlCargoEdit" runat="server" DataSourceID="SqlDataSource2" DataTextField="Descripcion" DataValueField="IdCargo">
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbPhonebookCompanyConnectionString %>" SelectCommand="SELECT [IdCargo], [Descripcion] FROM [Cargo]"></asp:SqlDataSource>
+                            
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label12" runat="server" Text='<%# Bind("Cargo.Descripcion") %>'></asp:Label>
@@ -178,7 +186,9 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Ubicacion">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("IdUbicacion") %>'></asp:TextBox>
+                            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource3" DataTextField="Descripcion" DataValueField="IdUbicacion" SelectedValue='<%# Bind("IdUbicacion") %>'>
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbPhonebookCompanyConnectionString %>" SelectCommand="SELECT [IdUbicacion], [Descripcion] FROM [Ubicacion]"></asp:SqlDataSource>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("Ubicacion.Descripcion") %>'></asp:Label>
@@ -186,16 +196,15 @@
                         <ItemStyle Width="100px" />
                     </asp:TemplateField>
                 </Columns>
-                <EditRowStyle BackColor="#7C6F57" />
-                <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" Height="30px" />
-                <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#E3EAEB" HorizontalAlign="Center" />
-                <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                <SortedAscendingHeaderStyle BackColor="#246B61" />
-                <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                <SortedDescendingHeaderStyle BackColor="#15524A" />
+                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" Height="30px" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" HorizontalAlign="Center" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
         </asp:Panel>
     </div>

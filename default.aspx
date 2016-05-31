@@ -9,8 +9,8 @@
             <asp:RadioButton ID="rbtnArea" runat="server" Text="Area" AutoPostBack="True" OnCheckedChanged="rbtnArea_CheckedChanged" />
             <asp:RadioButton ID="rbtnCargo" runat="server" Text="Cargo" AutoPostBack="True" OnCheckedChanged="rbtnCargo_CheckedChanged" />
             <asp:RadioButton ID="rbtnUbicacion" runat="server" Text="Ubicación" AutoPostBack="True" OnCheckedChanged="rbtnUbicacion_CheckedChanged" />
-            <asp:LinkButton ID="lbtnMostrarTodos" runat="server" OnClick="lbtnMostrarTodos_Click">Mostrar Todos</asp:LinkButton>
-            <asp:LinkButton ID="lbtnLimpiar" runat="server" OnClick="lbtnLimpiar_Click">Limpiar</asp:LinkButton>
+            <asp:LinkButton ID="lbtnMostrarTodos" CssClass="u-lbtn" runat="server" OnClick="lbtnMostrarTodos_Click">Mostrar Todos</asp:LinkButton>
+            <asp:LinkButton ID="lbtnLimpiar" CssClass="u-lbtn" runat="server" OnClick="lbtnLimpiar_Click">Limpiar</asp:LinkButton>
         </p>
     </div>
     <asp:Panel ID="pnlNombre" runat="server" Visible="true">
