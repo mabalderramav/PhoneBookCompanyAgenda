@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
+    <asp:Panel runat="server" ID="pnlRadioButton">
         <p>
             <asp:RadioButton ID="rbtnNombre" runat="server" Text="Nombre" Checked="True" AutoPostBack="True" OnCheckedChanged="rbtnNombre_CheckedChanged" />
             <asp:RadioButton ID="rbtnArea" runat="server" Text="Area" AutoPostBack="True" OnCheckedChanged="rbtnArea_CheckedChanged" />
@@ -12,7 +12,7 @@
             <asp:LinkButton ID="lbtnMostrarTodos" CssClass="u-lbtn" runat="server" OnClick="lbtnMostrarTodos_Click">Mostrar Todos</asp:LinkButton>
             <asp:LinkButton ID="lbtnLimpiar" CssClass="u-lbtn" runat="server" OnClick="lbtnLimpiar_Click">Limpiar</asp:LinkButton>
         </p>
-    </div>
+    </asp:Panel>
     <asp:Panel ID="pnlNombre" runat="server" Visible="true">
         <div>
             <p>

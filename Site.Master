@@ -56,7 +56,7 @@
                     <figure class="Header-imagenContenedorAvatar">
                         <figcaption class="Header-imagenAvatarDescripción">
                             <asp:Label CssClass="Header-imagenAvatarLbl" ID="lblUsuario" runat="server" Text="administrador" />
-                            <asp:LinkButton CssClass="Header-CerrarSesion" ID="lbtnCerrarSesion" runat="server">Cerrar Sesión</asp:LinkButton>
+                            <asp:LinkButton CssClass="Header-CerrarSesion" ID="lbtnCerrarSesion" runat="server" OnClick="lbtnCerrarSesion_Click">Cerrar Sesión</asp:LinkButton>
                         </figcaption>
                         <asp:Image ID="imgUsuario" runat="server" CssClass="Header-imagenAvatar" ImageUrl="~/img/usuario.png" ToolTip="Usuario" />
                     </figure>

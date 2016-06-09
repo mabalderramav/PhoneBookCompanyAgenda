@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
+    <asp:Panel runat="server" ID="pnlGestionArea">
         <h1>Gestion de Area</h1>
         <div class="u-div">
             <p class="u-p">
@@ -66,5 +66,5 @@
             <SortedDescendingCellStyle BackColor="#FCF6C0" />
             <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
-    </div>
+    </asp:Panel>
 </asp:Content>

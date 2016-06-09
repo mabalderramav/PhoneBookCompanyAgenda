@@ -3,16 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="GestionAgenda">
+    <asp:Panel runat="server" ID="pnlGestionAgenda"  class="GestionAgenda">
         <h1 class="GestionAgenda-title">Gestión de Agenda
         </h1>
-        <div class="GestionAgenda-header">
+        <asp:Panel ID="pnlAgendaHeader" runat="server" CssClass="GestionAgenda-header">
             <p class="GestionAgenda-p u-p">
                 <asp:TextBox ID="txbBuscar" placeholder="Buscar por nombre" CssClass="u-txb" runat="server"></asp:TextBox>
                 <asp:Button runat="server" ID="btnBuscar" CssClass="u-btn" Text="Buscar" OnClick="btnBuscar_Click" />
                 <asp:Button runat="server" ID="btnNuevo" CssClass="u-btn" Text="Nuevo" OnClick="btnNuevo_Click" />
             </p>
-        </div>
+        </asp:Panel>
         <asp:Panel ID="pnlAgenda" Visible="false" runat="server" CssClass="GestionAgenda-itemNuevo" GroupingText="Nueva Agenda" BorderStyle="None">
             <p class="GestionAgenda-p u-p">
                 <span class="GestionAgenda-lbl u-lbl">Codigo</span>
@@ -62,7 +62,6 @@
                 <asp:Button runat="server" ID="btnCancelar" CssClass="u-btn" Text="Cancelar" OnClick="btnCancelar_Click" TabIndex="12" />
             </p>
         </asp:Panel>
-
         <asp:Panel ID="pnlGvAgenda" CssClass="PnlGvAgenda" runat="server" Width="100%" ScrollBars="Auto">
             <%--<span class="GestionAgenda-lbl u-lbl">Foto</span>--%>
             <asp:GridView ID="gvAgenda" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" AllowPaging="True" Font-Size="8pt" PageSize="5" OnPageIndexChanging="gvAgenda_PageIndexChanging" OnRowCancelingEdit="gvAgenda_RowCancelingEdit" OnRowDeleting="gvAgenda_RowDeleting" OnRowEditing="gvAgenda_RowEditing" OnRowUpdating="gvAgenda_RowUpdating" OnRowDataBound="gvAgenda_RowDataBound" GridLines="None">
@@ -207,6 +206,6 @@
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
         </asp:Panel>
-    </div>
+    </asp:Panel>
 </asp:Content>
 
