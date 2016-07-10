@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Nanus.Phonebook.Company.Presentacion._default" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -43,7 +42,7 @@
             <asp:Button ID="btnBuscarUbicacion" CssClass="u-btn" runat="server" Text="Buscar" OnClick="btnBuscarUbicacion_Click"/>
         </div>
     </asp:Panel>
-    <asp:DataList ID="dlAgenda" runat="server" Width="900px" RepeatColumns="4">
+    <asp:DataList ID="dlAgenda" runat="server" Width="900px" RepeatColumns="4" OnItemDataBound="dlAgenda_ItemDataBound">
         <ItemTemplate>
             <div class="Agenda">
                 <figure class="Agenda-imagenContainer">
@@ -60,7 +59,8 @@
                     <asp:Label runat="server" ID="lblEmail" CssClass="Agenda-item" Text='<%# Bind("Email") %>'></asp:Label>
                 </p>
                 <p class="Agenda-itemContainer">
-                    <span class="Agenda-itemLabel">Linea directa: </span>
+                    <%--<span class="Agenda-itemLabel">T. Personal: </span>--%>
+                    <asp:Label runat="server" ID ="lblLineaDirectaLabel" CssClass="Agenda-itemLabel" Text="T. Personal:"></asp:Label>
                     <asp:Label runat="server" ID="lblLineaDirecta" CssClass="Agenda-item" Text='<%# Bind("LineaDirecta") %>'></asp:Label>
                 </p>
                 <p class="Agenda-itemContainer">

@@ -34,7 +34,7 @@
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Cargo">
@@ -62,7 +62,7 @@
                         &nbsp;<asp:LinkButton ID="LinkButton2" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton3" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmGestionAccesos.aspx.cs" Inherits="Nanus.Phonebook.Company.Presentacion.frmGestionAccesos" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
+     <style type="text/css">
         .auto-style1 {
             width: 100%;
         }

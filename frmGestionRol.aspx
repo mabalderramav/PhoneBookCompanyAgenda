@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmGestionRol.aspx.cs" Inherits="Nanus.Phonebook.Company.Presentacion.frmGestionRol" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -23,7 +22,7 @@
                         <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Bind("IdRol") %>' />
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Bind("IdRol") %>' />
+                        <asp:HiddenField ID="HiddenField2" runat="server" Value='<%# Bind("IdRol") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Rol">
@@ -41,7 +40,7 @@
                         &nbsp;<asp:LinkButton ID="LinkButton2" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton3" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

@@ -21,7 +21,7 @@
                         <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Bind("IdUbicacion") %>' />
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Bind("IdUbicacion") %>' />
+                        <asp:HiddenField ID="HiddenField2" runat="server" Value='<%# Bind("IdUbicacion") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Ubicación">
@@ -39,7 +39,7 @@
                         &nbsp;<asp:LinkButton ID="LinkButton2" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton3" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

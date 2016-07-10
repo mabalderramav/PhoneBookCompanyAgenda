@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmGestionArea.aspx.cs" Inherits="Nanus.Phonebook.Company.Presentacion.frmGestionArea" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -26,7 +25,7 @@
                         <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Bind("IdArea") %>' />
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Bind("IdArea") %>' />
+                        <asp:HiddenField ID="HiddenField2" runat="server" Value='<%# Bind("IdArea") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Codigo">
@@ -34,7 +33,7 @@
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Descripción">
@@ -52,7 +51,7 @@
                         &nbsp;<asp:LinkButton ID="LinkButton2" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton3" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

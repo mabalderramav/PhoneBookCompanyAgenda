@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmGestionAgenda.aspx.cs" Inherits="Nanus.Phonebook.Company.Presentacion.frmGestionAgenda" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -39,7 +38,7 @@
                 <asp:TextBox runat="server" ID="txbEmail" placeholder="No tiene" CssClass="GestionAgenda-txb u-txb" TabIndex="5" TextMode="Email"></asp:TextBox>
             </p>
             <p class="GestionAgenda-p u-p">
-                <span class="GestionAgenda-lbl u-lbl">Linea directa</span>
+                <span class="GestionAgenda-lbl u-lbl">Telefóno personal</span>
                 <asp:TextBox runat="server" ID="txbLineaDirecta" placeholder="No tiene" CssClass="GestionAgenda-txb u-txb" TabIndex="6" TextMode="Phone"></asp:TextBox>
             </p>
             <p class="GestionAgenda-p u-p">
@@ -81,8 +80,8 @@
                             &nbsp;<asp:LinkButton ID="LinkButton2" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton1" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Font-Size="10pt" Text="Editar"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="LinkButton2" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Delete" Font-Size="10pt" Text="Eliminar"></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton3" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Edit" Font-Size="10pt" Text="Editar"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="LinkButton4" CssClass="u-lbtn" runat="server" CausesValidation="False" CommandName="Delete" Font-Size="10pt" Text="Eliminar"></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Codigo">
@@ -91,8 +90,8 @@
                             <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Bind("IdAgenda") %>' />
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
-                            <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Bind("IdAgenda") %>' />
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
+                            <asp:HiddenField ID="HiddenField2" runat="server" Value='<%# Bind("IdAgenda") %>' />
                         </ItemTemplate>
                         <ItemStyle Width="80px" />
                     </asp:TemplateField>
@@ -123,7 +122,7 @@
                         </ItemTemplate>
                         <ItemStyle Width="80px" />
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="L. Directa">
+                    <asp:TemplateField HeaderText="T. Personal">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox8" runat="server" Text='<%# Bind("LineaDirecta") %>'></asp:TextBox>
                         </EditItemTemplate>
@@ -190,7 +189,7 @@
                             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbPhonebookCompanyConnectionString %>" SelectCommand="SELECT [IdUbicacion], [Descripcion] FROM [Ubicacion]"></asp:SqlDataSource>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Ubicacion.Descripcion") %>'></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Ubicacion.Descripcion") %>'></asp:Label>
                         </ItemTemplate>
                         <ItemStyle Width="100px" />
                     </asp:TemplateField>
@@ -208,4 +207,3 @@
         </asp:Panel>
     </asp:Panel>
 </asp:Content>
-
